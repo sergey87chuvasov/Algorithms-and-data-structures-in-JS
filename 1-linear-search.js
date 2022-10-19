@@ -1,4 +1,4 @@
-// алгоритм линейного поиска элемента в массиве  - самый простой, те мы последовательно пробегаемся по элементу в цикле
+// алгоритм линейного поиска элемента в массиве (например случайно разбросанных чисел)  - самый простой, те мы последовательно пробегаемся по элементу в цикле
 
 const arr = [1, 4, 5, 8, 5, 1, 2, 7, 5, 2, 11];
 
@@ -15,8 +15,7 @@ function linearSearch(array, item) {
   return null;
 }
 
-// test
-// console.log(linearSearch(arr, 8)); // 3 - ind
+// console.log(linearSearch(arr, 8)); // 3 - ind elem in array
 // console.log(count); // 4
 
 console.log(linearSearch(arr, 888)); // null
