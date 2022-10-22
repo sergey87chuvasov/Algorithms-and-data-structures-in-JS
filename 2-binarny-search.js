@@ -1,6 +1,6 @@
 // алгоритм бинарного поиска - те в первую очередь нам нужно получить центральный элемент в массиве (упорядоченных чисел), мы должны знать позицию первого элемента и последнего
 
-const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 let count = 0;
 
 // алгоритм можно реализовать как с помощью рекурсии так и цикла
@@ -29,10 +29,31 @@ function binarnySearch(array, item) {
   }
   return position;
 }
-// console.log(binarnySearch(arr, 4)); // 4
+// console.log(binarnySearch(array, 4)); // 4
 // console.log(count); // 4ку находим за 4 итерации и макс кол-во итераци за которое можно найти любое число в данном  массиве
 
-console.log(binarnySearch(arr, 8)); // 8
+console.log(binarnySearch(array, 8)); // 8
 console.log(count); // 1
 
 // сложность (o)lg(n)2  lg от 16 по основанию 2 = 4
+
+// сделаем при помощи рекурсии
+function recursiveBinarySearch(array, item, start, end) {
+  // находим центральный элемент
+  let middle = Math.floor((start + end) / 2);
+  count += 1;
+
+  // делаем проверку
+  if (item === array[middle]) {
+    return middle;
+  }
+
+  if (item < array[middle]) {
+    return recursiveBinarySearch(array, item, start, middle - 1);
+  } else {
+    return recursiveBinarySearch(array, item, middle + 1, end);
+  }
+}
+
+console.log(recursiveBinarySearch(array, 12, 0, array.length)); //12
+console.log(count); //3
